@@ -35,7 +35,7 @@ const Gallery = ({ data }) => {
   
   return (
     <div className={sections} >
-      <h2>Pictures</h2>
+      <h2 className='text-5xl font-bold mb-6'>Gallery</h2>
       <div className='row'>
         {clImages.map((image, index) => (
           <div className='col-12 col-sm-6 col-lg-3'>

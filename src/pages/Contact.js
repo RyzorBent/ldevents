@@ -1,67 +1,61 @@
 import React from 'react';
-import {
-  center,
-  container,
-  stubborn,
-  theForm,
-} from '../styles/contact.module.css';
 import { sections } from '../styles/sections.module.css';
 
-export default function Contact() {
+export default function ContactForm() {
   return (
-    <div className={sections}>
-      <div
-        className={container}
-        style={{
-          height: '50%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
+    <div className={`${sections} bg-gray-700 mt-6 mb-16 p-6 text-white rounded-lg`}>
+      <h2 className='text-center text-5xl font-bold pt-6'>Contact Idevents for Event Planning</h2>
+      <p className='text-center mt-4 mb-8 text-white'>
+        Contact Idevents for all your event planning needs. Get in touch with us today to find out
+        more about the services we offer.
+      </p>
+      <form
+        method='post'
+        data-netlify='true'
+        data-netlify-honeypot='bot-field'
+        name='contact'
+        className='max-w-4xl mx-auto grid grid-cols-1 gap-6'
       >
-        <h2 className={center}>Contact Us</h2>
-        <form
-          method='post'
-          netlify-honeypot='bot-field'
-          data-netlify='true'
-          netlify
-          name='contact'
-          className={theForm}
-        >
-          <input type='hidden' name='bot-field' />
-          <input type='hidden' name='form-name' value='contact' />
+        <input type='hidden' name='form-name' value='contact' />
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
           <input
-            className={stubborn}
+            type='text'
             name='first_name'
-            type='text'
+            placeholder='First Name'
+            className='bg-gray-800 border border-gray-600 text-white placeholder-gray-400 p-3 rounded-md'
             required
-            placeholder='Name'
           />
           <input
-            className={stubborn}
+            type='text'
             name='last_name'
-            type='text'
+            placeholder='Last Name'
+            className='bg-gray-800 border border-gray-600 text-white placeholder-gray-400 p-3 rounded-md'
             required
-            placeholder='Surname'
           />
-          <input
-            name='email'
-            type='email'
-            required
-            placeholder='you@domain.com'
-          />
-          <textarea
-            name='message'
-            cols='30'
-            rows='4'
-            placeholder='Enter your message here ...'
-          ></textarea>
-          <div className={center}>
-            <input className='btn' type='submit' value='Send' />
-          </div>
-        </form>
-      </div>
+        </div>
+        <input
+          type='email'
+          name='email'
+          placeholder='Email'
+          className='bg-gray-800 border border-gray-600 text-white placeholder-gray-400 p-3 rounded-md'
+          required
+        />
+        <textarea
+          name='message'
+          rows='3'
+          placeholder='Type your message here.'
+          className='bg-gray-800 border border-gray-600 text-white placeholder-gray-400 p-3 rounded-md'
+          required
+        ></textarea>
+        <div className='flex justify-between items-center mt-6'>
+          <button
+            type='submit'
+            className='bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition duration-150 ease-in-out'
+          >
+            Send
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

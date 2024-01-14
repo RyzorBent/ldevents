@@ -1,0 +1,1 @@
+import './src/styles/global.css'; // Path to your global stylesheet

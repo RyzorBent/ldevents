@@ -13,7 +13,6 @@ module.exports = {
   plugins: [
     // `gatsby-theme-gallery`,
     `gatsby-transformer-sharp`,
-
     `gatsby-transformer-remark`,
     `gatsby-plugin-image`,
     `gatsby-plugin-postcss`,
@@ -21,9 +20,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Diroboto`,
-        short_name: `Cool App`,
-        description: `robotics academy platform in alexandra township and mokgwaneng village`,
+        name: `Ldevents`,
+        short_name: `Ldevents`,
+        description: `Events company`,
         lang: `en`,
         display: `standalone`,
         icon: `src/images/logo.png`,
@@ -43,7 +42,7 @@ module.exports = {
         // basePath: process.env.CLOUDINARY_BASE_PATH,
         resourceType: `image`,
         // type: `type Value`,
-        prefix: `diroboto/`,
+        prefix: `ldevents/gallery`,
       },
     },
     {
