@@ -31,7 +31,12 @@ module.exports = {
         theme_color: `#fff`,
       },
     },
-
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+      },
+    },
     { resolve: `gatsby-plugin-sharp`, options: { failOnError: false } },
     {
       resolve: `gatsby-source-cloudinary`,

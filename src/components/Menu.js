@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'gatsby'
+
 import { Navbar, Container, Nav} from 'react-bootstrap';
 import { collapse } from '../styles/menu.modules.css';
 import Logo from '../images/logo.png';
