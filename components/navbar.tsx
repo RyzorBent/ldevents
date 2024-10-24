@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import { useState } from "react";
 import { useCart } from "@/hooks/use-cart";
+import { motion } from 'framer-motion';
 
 const routes = [
   {
@@ -45,32 +46,40 @@ export default function Navbar() {
           Elegance Events
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <motion.nav 
+          className="hidden md:flex items-center gap-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, staggerChildren: 0.1 }}
+        >
           {routes.map((route) => (
-            <Link
-              key={route.href}
-              href={route.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary",
-                pathname === route.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
-              )}
-            >
-              {route.label}
-            </Link>
+            <motion.div key={route.href} whileHover={{ scale: 1.05 }}>
+              <Link
+                href={route.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  pathname === route.href
+                    ? "text-primary"
+                    : "text-muted-foreground"
+                )}
+              >
+                {route.label}
+              </Link>
+            </motion.div>
           ))}
-          <Link href="/cart">
-            <Button size="icon" variant="ghost" className="relative">
-              <ShoppingCart className="h-5 w-5" />
-              {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground w-4 h-4 rounded-full text-xs flex items-center justify-center">
-                  {itemCount}
-                </span>
-              )}
-            </Button>
-          </Link>
-        </nav>
+          <motion.div whileHover={{ scale: 1.05 }}>
+            <Link href="/cart">
+              <Button size="icon" variant="ghost" className="relative">
+                <ShoppingCart className="h-5 w-5" />
+                {itemCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground w-4 h-4 rounded-full text-xs flex items-center justify-center">
+                    {itemCount}
+                  </span>
+                )}
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.nav>
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">

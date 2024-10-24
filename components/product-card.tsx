@@ -4,6 +4,7 @@ import { Product } from "@/lib/types";
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { useCart } from '@/hooks/use-cart';
+import { motion } from 'framer-motion';
 
 interface ProductCardProps {
   product: Product;
@@ -22,7 +23,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="group rounded-lg border bg-card text-card-foreground shadow-sm">
+    <motion.div 
+      className="group rounded-lg border bg-card text-card-foreground shadow-sm"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.02 }}
+    >
       <div className="aspect-square relative overflow-hidden rounded-t-lg">
         <img
           src={product.image}
@@ -40,6 +47,6 @@ export default function ProductCard({ product }: ProductCardProps) {
           </Button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
