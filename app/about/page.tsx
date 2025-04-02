@@ -51,7 +51,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className='py-16 bg-muted/50'>
+      
+      {/* <section className='py-16 bg-muted/50'>
         <div className='container'>
           <h2 className='text-3xl font-bold text-center mb-12'>Meet Our Team</h2>
           <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
@@ -71,7 +72,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
