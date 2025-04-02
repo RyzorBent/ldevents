@@ -39,11 +39,17 @@ export default function GalleryPage() {
         console.log('Fetching images from API...');
         const response = await fetch('/api/gallery-images');
         console.log('API Response status:', response.status);
+        console.log('API Response headers:', Object.fromEntries(response.headers.entries()));
+        
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          const errorText = await response.text();
+          console.error('API Error response:', errorText);
+          throw new Error(`HTTP error! status: ${response.status}, body: ${errorText}`);
         }
+        
         const data: GalleryImage[] = await response.json();
-        console.log('API Response data:', data);
+        console.log('API Response data length:', data?.length || 0);
+        console.log('First image (if any):', data?.[0]);
         setAllGalleryItems(data);
       } catch (e) {
         console.error('Failed to fetch gallery images:', e);

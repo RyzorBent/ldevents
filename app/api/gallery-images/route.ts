@@ -43,9 +43,25 @@ export async function GET(request: Request) {
   });
 
   try {
+    // Test Cloudinary connection
+    try {
+      const testResult = await cloudinary.api.ping();
+      console.log('Cloudinary connection test:', testResult);
+    } catch (pingError) {
+      console.error('Cloudinary connection test failed:', pingError);
+    }
+
     const folders = ['ldevents/gallery/birthdays', 'ldevents/gallery/corporate'];
     console.log('Searching folders:', JSON.stringify(folders));
     let allImages: any[] = [];
+
+    // List root folders to verify structure
+    try {
+      const rootFolders = await cloudinary.api.root_folders();
+      console.log('Available root folders:', rootFolders);
+    } catch (listError) {
+      console.error('Failed to list root folders:', listError);
+    }
 
     for (const folder of folders) {
       try {
