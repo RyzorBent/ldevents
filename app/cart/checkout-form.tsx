@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/hooks/use-cart';
-import { sendEmail } from '@/lib/email';
 
 export default function CheckoutForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,12 +38,7 @@ export default function CheckoutForm() {
         throw new Error('Failed to process order');
       }
 
-      // Send confirmation email
-      await sendEmail({
-        to: formData.email,
-        subject: 'Order Confirmation',
-        text: `Thank you for your order, ${formData.name}!`,
-      });
+      // Confirmation email sending logic should be in the /api/orders endpoint
 
       toast({
         title: 'Order placed successfully!',
