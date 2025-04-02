@@ -12,9 +12,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+interface OrderRequestBody {
+  items: CartItem[];
+  customerEmail: string;
+  customerName: string;
+}
+
 export async function POST(req: Request) {
   try {
-    const { items, customerEmail, customerName } = await req.json();
+    const { items, customerEmail, customerName }: OrderRequestBody = await req.json();
     const total = calculateTotal(items);
 
     // Log order details (can be replaced with database insertion)

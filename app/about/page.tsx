@@ -19,11 +19,11 @@ export default function AboutPage() {
         <div className='max-w-3xl mx-auto text-center mb-16'>
           <p className='text-lg text-muted-foreground mb-8'>
             LDE Events is a premier event management company specializing in{' '}
-            <strong class='text-foreground'>corporate events</strong>. With over{' '}
-            <strong class='text-foreground'>13 years of experience</strong>, we have successfully
-            executed high-profile events for top organizations, ensuring seamless planning,
-            exceptional execution, and memorable experiences. Whether it's{' '}
-            <strong class='text-foreground'>
+            <strong className='text-foreground'>corporate events</strong>. With over{' '}
+            <strong className='text-foreground'>13 years of experience</strong>, we have
+            successfully executed high-profile events for top organizations, ensuring seamless
+            planning, exceptional execution, and memorable experiences. Whether it's{' '}
+            <strong className='text-foreground'>
               awards galas, executive retreats, conferences, or wellness events
             </strong>
             , we bring innovation, professionalism, and attention to detail to every occasion.
@@ -32,10 +32,10 @@ export default function AboutPage() {
           <h2 className='text-3xl font-bold my-8'>Our Mission</h2>
           <p className='text-lg text-muted-foreground'>
             Our mission is to deliver{' '}
-            <strong class='text-foreground'>excellence in corporate event planning</strong> by
+            <strong className='text-foreground'>excellence in corporate event planning</strong> by
             combining creativity, precision, and passion. We are committed to transforming every
             corporate gathering into an{' '}
-            <strong class='text-foreground'>unforgettable experience</strong>, exceeding
+            <strong className='text-foreground'>unforgettable experience</strong>, exceeding
             expectations through meticulous planning and exceptional service.
           </p>
         </div>
@@ -50,6 +50,28 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      <section className='py-16 bg-muted/50'>
+        <div className='container'>
+          <h2 className='text-3xl font-bold text-center mb-12'>Meet Our Team</h2>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+            {team.map((member) => (
+              <div key={member.name} className='text-center'>
+                <div className='relative w-48 h-48 mx-auto mb-4'>
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className='rounded-full object-cover w-full h-full'
+                  />
+                </div>
+                <h3 className='font-semibold text-xl mb-1'>{member.name}</h3>
+                <p className='text-muted-foreground mb-2'>{member.role}</p>
+                <p className='text-sm text-muted-foreground max-w-xs mx-auto'>{member.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
@@ -62,7 +84,7 @@ const stats = [
   },
   {
     label: 'Events Decorated',
-    value: '60+',
+    value: '2000+',
     icon: Heart,
   },
   {
@@ -72,7 +94,7 @@ const stats = [
   },
   {
     label: 'Team Members',
-    value: '8+',
+    value: '25+',
     icon: Users,
   },
 ];
