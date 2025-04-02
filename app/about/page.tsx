@@ -85,7 +85,7 @@ const stats = [
   },
   {
     label: 'Events Decorated',
-    value: '2000+',
+    value: '60+',
     icon: Heart,
   },
   {
@@ -95,7 +95,7 @@ const stats = [
   },
   {
     label: 'Team Members',
-    value: '25+',
+    value: '8+',
     icon: Users,
   },
 ];

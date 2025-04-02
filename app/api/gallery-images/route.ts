@@ -38,7 +38,7 @@ export async function GET(request: Request) {
   console.log(`GET /api/gallery-images: Received request at ${new Date().toISOString()}`);
   try {
     console.log('Attempting to fetch images from Cloudinary...');
-    const folders = ['ldevents/gallery/corporate', 'ldevents/gallery/birthdays']; // Add 'ldevents/gallery/weddings' if needed
+    const folders = ['ldevents/gallery/birthdays', 'ldevents/gallery/corporate']; // Match exact Cloudinary paths
     console.log('Fetching from folders:', folders);
     let allImages: any[] = [];
 
